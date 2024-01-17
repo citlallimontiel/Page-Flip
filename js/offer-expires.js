@@ -1,10 +1,14 @@
-// Set the expiration date (replace with your desired date and time)
-const expirationDate = new Date('2024-02-01T00:00:00');
+// Offer details
+const specialOffer = {
+    title: 'Limited Time Offer!',
+    description: 'Get 20% off on all products. Don\'t miss out!',
+    expirationDate: new Date('2024-02-01T00:00:00'),
+};
 
 // Function to update the countdown
 function updateCountdown() {
     const currentDate = new Date();
-    const timeDifference = expirationDate - currentDate;
+    const timeDifference = specialOffer.expirationDate - currentDate;
 
     if (timeDifference > 0) {
         const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
@@ -18,8 +22,17 @@ function updateCountdown() {
     }
 }
 
+// Function to display special offer details
+function displayOffer() {
+    document.getElementById('offerTitle').innerHTML = specialOffer.title;
+    document.getElementById('offerDescription').innerHTML = specialOffer.description;
+}
+
 // Update the countdown every second
 setInterval(updateCountdown, 1000);
 
 // Initial update
 updateCountdown();
+
+// Display the special offer details
+displayOffer();
