@@ -16,7 +16,7 @@
 	bookRate = document.getElementById('bookRate');
 	specialRate = document.getElementById('specialRate');
 
-	bookName.textContent = hotel.name;
+	bookName.textContent = book.name;
 	bookRate.textContent = '$' + book.bookRate.toFixed(2);
 	specialRate.textContent = '$' + book.offerPrice();
 
