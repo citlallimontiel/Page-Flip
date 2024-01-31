@@ -69,6 +69,37 @@
 	    }
 	  </script>
 	  <script src="js/decision-loop.js"></script>
+	  <h3>Book Review Form</h3>
+	  <form id="bookReviewForm">
+	      <label for="title">Title:</label>
+	      <input type="text" id="title" name="title" required>
+
+	      <label for="author">Author:</label>
+	      <input type="text" id="author" name="author" required>
+
+	      <label for="review">Review:</label>
+	      <textarea id="review" name="review" required></textarea>
+
+	      <button type="button" onclick="submitReview()">Submit Review</button>
+	  </form>
+	  <script>
+	      function submitReview() {
+	          var title = document.getElementById('title').value;
+	          var author = document.getElementById('author').value;
+	          var review = document.getElementById('review').value;
+
+	          // You can add additional validation if needed
+
+	          // For simplicity, let's just log the review to the console
+	          console.log("Book review submitted:");
+	          console.log("Title: " + title);
+	          console.log("Author: " + author);
+	          console.log("Review: " + review);
+
+	          // You can perform further actions, such as sending data to the server using AJAX
+	          // or redirecting the user to a thank you page
+	      }
+	  </script>
   	  </div>
     </article>
 <aside class="right_article"> </aside>
