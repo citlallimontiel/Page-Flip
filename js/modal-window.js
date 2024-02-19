@@ -29,12 +29,12 @@ var modal = (function() {
 			}).appendTo('body');
 			
 			modal.center();
-			$(window).on('resize', modal.center);
+			$(window).on('resize.modal', modal.center);
 		},
 		close: function() {
 			$content.empty();
 			$modal.detach();
-			$(window).off('resize', modal.center);
+			$(window).off('resize.modal', modal.center);
 		}
 	};
 }());
