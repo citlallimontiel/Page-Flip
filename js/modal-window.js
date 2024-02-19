@@ -31,6 +31,11 @@ var modal = (function() {
 			modal.center();
 			$(window).on('resize.modal', modal.center);
 		},
+		$('#openModalBtn').on('click', function() {
+		    modal.open({
+		        content: 'This is where your book review content goes.'
+		    });
+		});
 		close: function() {
 			$content.empty();
 			$modal.detach();
