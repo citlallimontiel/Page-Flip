@@ -458,3 +458,9 @@ body {
 }
 #menu {
 }
+.book .summary {
+    display: none;
+}
+.modal {
+	position: absolute;
+	z-index: 1000;}
