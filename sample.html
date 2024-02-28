@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Reviews</title>
+  <style>
+    /* Add some basic styling */
+    .book {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Filter by genre -->
+  <label><input type="checkbox" id="filter-fiction"> Fiction</label>
+  <label><input type="checkbox" id="filter-nonfiction"> Non-Fiction</label>
+
+  <!-- Search -->
+  <input type="text" id="search-input" placeholder="Search by title or author">
+
+  <!-- Sort -->
+  <select id="sort-select">
+    <option value="title">Title</option>
+    <option value="author">Author</option>
+    <option value="rating">Rating</option>
+  </select>
+
+  <!-- Book reviews -->
+  <div id="book-reviews">
+    <div class="book fiction" data-title="To Kill a Mockingbird" data-author="Harper Lee" data-rating="5">To Kill a Mockingbird by Harper Lee</div>
+    <div class="book nonfiction" data-title="Sapiens" data-author="Yuval Noah Harari" data-rating="4">Sapiens by Yuval Noah Harari</div>
+    <div class="book fiction" data-title="1984" data-author="George Orwell" data-rating="4">1984 by George Orwell</div>
+    <div class="book fiction" data-title="The Great Gatsby" data-author="F. Scott Fitzgerald" data-rating="3">The Great Gatsby by F. Scott Fitzgerald</div>
+    <div class="book nonfiction" data-title="The Power of Habit" data-author="Charles Duhigg" data-rating="5">The Power of Habit by Charles Duhigg</div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Filtering by genre
+      $('#filter-fiction, #filter-nonfiction').change(function() {
+        var genre = $(this).attr('id').split('-')[1];
+        $('.book').hide();
+        if ($(this).is(':checked')) {
+          $('.' + genre).show();
+        } else {
+          $('.book').show();
+        }
+      });
+
+      // Searching
+      $('#search-input').on('input', function() {
+        var searchText = $(this).val().toLowerCase();
+        $('.book').each(function() {
+          var title = $(this).data('title').toLowerCase();
+          var author = $(this).data('author').toLowerCase();
+          $(this).toggle(title.includes(searchText) || author.includes(searchText));
+        });
+      });
+
+      // Sorting
+      $('#sort-select').change(function() {
+        var sortBy = $(this).val();
+        var $books = $('.book').get();
+        $books.sort(function(a, b) {
+          var aValue = $(a).data(sortBy);
+          var bValue = $(b).data(sortBy);
+          return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+        });
+        $('#book-reviews').empty().append($books);
+      });
+    });
+  </script>
+</body>
+</html>
