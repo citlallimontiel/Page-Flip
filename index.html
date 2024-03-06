@@ -52,6 +52,42 @@
 	<script src="js/modal-window.js"></script>
 	<script src="js/modal-init.js"></script>
 	</div>
+	<form id="register" method="post" action="/register">
+	        <div class="name">
+	            <label for="name" class="required">Name:</label>
+	            <input type="text" placeholder="Enter your name" name="name" id="name" required title="Please enter your name">
+	        </div>
+	        <div class="email">
+	            <label for="email" class="required">Email:</label>
+	            <input type="email" placeholder="you@example.com" name="email" id="email" required>
+	        </div>
+	        <div class="password">
+	            <label for="password" class="required">Password:</label>
+	            <input type="password" name="password" id="password" required>
+	        </div>
+	        <div class="password">
+	            <label for="conf-password" class="required">Confirm password:</label>
+	            <input type="password" name="conf-password" id="conf-password" required>
+	        </div>
+	        <div class="birthday">
+	            <label for="birthday" class="required">Birthday:</label>
+	            <input type="date" name="birthday" id="birthday" placeholder="yyyy-mm-dd" required>
+	            <div id="consent-container" class="hide">
+	                <label for="parents-consent">You need a parent's permission to join. Tick here if your child can join:</label>
+	                <input type="checkbox" name="parents-consent" id="parents-consent" required>
+	            </div>
+	        </div>
+	        <div class="bio">
+	            <label for="bio">Short bio (max 140 characters):</label>
+	            <textarea name="bio" id="bio" rows="5" cols="30" maxlength="140"></textarea>
+	            <span id="bio-count" class="hide">140</span>
+	        </div>
+	        <div class="submit">
+	            <input type="submit">
+	        </div>
+	    </form>
+
+	    <script src="formValidation.js"></script>
 	</article>
     <aside class="right_article"><img src="images/booksbanner.png" alt="books lined up with an open book on top" width="400" height="200" class="placeholder"/> </aside>
   </section>
